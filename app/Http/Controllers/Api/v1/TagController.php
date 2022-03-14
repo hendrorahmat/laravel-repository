@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\API\v1;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\NewsRepositoryInterface;
+use App\Repositories\TagRepositoryInterface;
 
-class NewsController extends Controller
+class TagController extends Controller
 {
-    private $newsRepository;
+    private $tagRepository;
 
-    public function __construct(NewsRepositoryInterface $newsRepository)
+    public function __construct(TagRepositoryInterface $tagRepository)
     {
-        $this->newsRepository = $newsRepository;
+        $this->tagRepository = $tagRepository;
     }
 
     /**
@@ -21,30 +21,30 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return $this->newsRepository->getAll(request()->all());
+        return $this->tagRepository->getAll();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  request
      * @return \Illuminate\Http\Response
      */
     public function store()
     {
-        return $this->newsRepository->store(request()->all());
+        return $this->tagRepository->store(request()->all());
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update($id)
     {
-        return $this->newsRepository->update($id, request()->all());
+        return $this->tagRepository->update($id, request()->all());
     }
 
     /**
@@ -55,6 +55,6 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        return $this->newsRepository->delete($id);
+        return $this->tagRepository->delete($id);
     }
 }

@@ -1,0 +1,12 @@
+{
+    "name": "avana/coupon",
+    "description": "package coupon",
+    "type": "avana-library",
+    "authors": [
+        {
+            "name": "Hendro Rahmat",
+            "email": "hendro863@gmail.com"
+        }
+    ],
+    "require": {}
+}
